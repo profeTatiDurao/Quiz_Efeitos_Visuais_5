@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Quiz - Efeito de Partículas com JavaScript</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1e1e2f;
+            color: #f0f0f0;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: #2b2b3d;
+            padding: 30px;
+            width: 520px;
+            margin: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+        }
+
+        h1 {
+            margin-bottom: 10px;
+            color: #00ffff;
+        }
+
+        .subtitulo {
+            font-size: 0.95rem;
+            color: #cccccc;
+            margin-bottom: 25px;
+        }
+
+        .pergunta {
+            text-align: left;
+            margin-bottom: 20px;
+            padding: 10px;
+            border-left: 3px solid #00ffff;
+            background-color: #242436;
+            border-radius: 5px;
+        }
+
+        .pergunta p {
+            font-weight: bold;
+        }
+
+        code {
+            color: #00ffff;
+            background-color: #1e1e2f;
+            padding: 2px 5px;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #00ffff;
+            color: #1e1e2f;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #00b3b3;
+        }
+
+        #resultado {
+            font-weight: bold;
+            margin-top: 20px;
+            color: #00ffff;
+        }
+
+        #linkRespostas {
+            margin-top: 15px;
+            word-break: break-all;
+        }
+
+        #linkRespostas a {
+            color: #00ffff;
+            font-weight: bold;
+        }
+
+        .correto {
+            color: #00ff7f;
+            font-weight: bold;
+        }
+
+        .errado {
+            color: #ff4040;
+            font-weight: bold;
+        }
+
+        .neutro {
+            color: #ffd166;
+            font-weight: bold;
+        }
+
+        @media (max-width: 560px) {
+            .container {
+                width: 90%;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Quiz - Efeito de Partículas</h1>
+
+        <p class="subtitulo">
+            Responda às perguntas sobre criação de partículas, eventos do mouse, animação e remoção de elementos com JavaScript.
+        </p>
+
+        <form id="quizForm">
+
+            <div class="pergunta" id="q1box">
+                <p>1) Qual é a função do comando <code>document.createElement("div")</code> no efeito de partículas?</p>
+
+                <label>
+                    <input type="radio" name="q1" value="a">
+                    Criar uma nova partícula como elemento HTML
+                </label><br>
+
+                <label>
+                    <input type="radio" name="q1" value="b">
+                    Apagar todas as partículas da tela
+                </label><br>
+
+                <label>
+                    <input type="radio" name="q1" value="c">
+                    Mudar a cor de fundo da página
+                </label><br>
+
+                <label>
+                    <input type="radio" name="q1" value="d">
+                    Criar automaticamente uma imagem
+                </label>
+            </div>
+
+            <div class="pergunta" id="q2box">
+                <p>2) Para que serve o código <code>Math.random()</code> nesse projeto?</p>
+
+                <label>
+                    <input type="radio" name="q2" value="a">
+                    Para impedir o clique do mouse
+                </label><br>
+
+                <label>
+                    <input type="radio" name="q2" value="b">
+                    Para deixar o site responsivo
+                </label><br>
+
+                <label>
+                    <input type="radio" name="q2" value="c">
+                    Para escolher valores aleatórios, como tamanho, cor ou direção
+                </label><br>
+
+                <label>
+                    <input type="radio" name="q2" value="d">
+                    Para criar uma tag HTML
+                </label>
+            </div>
+
+            <div class="pergunta" id="q3box">
+                <p>3) O que esta linha faz? <code>container.appendChild(particle)</code></p>
+
+                <label>
+                    <input type="radio" name="q3" value="a">
+                    Remove a partícula do container
+                </label><br>
+
+                <label>
+                    <input type="radio" name="q3" value="b">
+                    Adiciona a partícula dentro do container na tela
+                </label><br>
+
+                <label>
+                    <input type="radio" name="q3" value="c">
+                    Sorteia uma nova cor para o fundo
+                </label><br>
+
+                <label>
+                    <input type="radio" name="q3" value="d">
+                    Para a animação imediatamente
+                </label>
+            </div>
+
+            <div class="pergunta" id="q4box">
+                <p>4) No trecho <code>translate(movimentoX, movimentoY)</code>, o que o JavaScript está controlando?</p>
+
+                <label>
+                    <input type="radio" name="q4" value="a">
+                    O texto que aparece dentro da partícula
+                </label><br>
+
+                <label>
+                    <input type="radio" name="q4" value="b">
+                    O título da página
+                </label><br>
+
+                <label>
+                    <input type="radio" name="q4" value="c">
+                    O botão de enviar respostas
+                </label><br>
+
+                <label>
+                    <input type="radio" name="q4" value="d">
+                    A direção para onde a partícula vai se mover
+                </label>
+            </div>
+
+            <div class="pergunta" id="q5box">
+                <p>5) Por que usamos <code>particle.remove()</code> depois da animação?</p>
+
+                <label>
+                    <input type="radio" name="q5" value="a">
+                    Para remover a partícula do HTML e evitar que fique rastro na tela
+                </label><br>
+
+                <label>
+                    <input type="radio" name="q5" value="b">
+                    Para aumentar o tamanho da partícula
+                </label><br>
+
+                <label>
+                    <input type="radio" name="q5" value="c">
+                    Para trocar o nome da classe CSS
+                </label><br>
+
+                <label>
+                    <input type="radio" name="q5" value="d">
+                    Para criar mais perguntas no quiz
+                </label>
+            </div>
+
+            <button type="button" onclick="corrigir()">Enviar Respostas</button>
+
+        </form>
+
+        <p id="resultado"></p>
+
+        <p id="linkRespostas"></p>
+
+    </div>
+
+    <script>
+        function corrigir() {
+            const respostasCorretas = {
+                q1: "a",
+                q2: "c",
+                q3: "b",
+                q4: "d",
+                q5: "a"
+            };
+
+            let pontos = 0;
+            const total = Object.keys(respostasCorretas).length;
+            const form = document.getElementById("quizForm");
+
+            let params = [];
+
+            for (const q in respostasCorretas) {
+                const box = document.getElementById(q + "box");
+
+                const antigo = box.querySelector(".feedback");
+                if (antigo) antigo.remove();
+
+                const marcado = form.querySelector(`input[name="${q}"]:checked`);
+
+                const respostaAluno = marcado ? marcado.value : "nao_respondeu";
+
+                const acertou = respostaAluno === respostasCorretas[q];
+
+                if (acertou) {
+                    pontos++;
+                }
+
+                params.push(`${q}=${respostaAluno}`);
+                params.push(`${q}_status=${acertou ? "correto" : "errado"}`);
+
+                const feedback = document.createElement("p");
+                feedback.classList.add("feedback");
+
+                if (respostaAluno === "nao_respondeu") {
+                    feedback.textContent = "⚠️ Você não marcou nenhuma alternativa.";
+                    feedback.classList.add("neutro");
+                } else if (acertou) {
+                    feedback.textContent = "✅ Correto!";
+                    feedback.classList.add("correto");
+                } else {
+                    let respostaCorretaTexto = "";
+
+                    const inputs = box.querySelectorAll("label input");
+
+                    inputs.forEach(input => {
+                        if (input.value === respostasCorretas[q]) {
+                            respostaCorretaTexto = input.parentNode.textContent.trim();
+                        }
+                    });
+
+                    feedback.textContent = `❌ Errado. A resposta correta é: ${respostaCorretaTexto}`;
+                    feedback.classList.add("errado");
+                }
+
+                box.appendChild(feedback);
+            }
+
+            document.getElementById("resultado").textContent =
+                `Você acertou ${pontos} de ${total} questões.`;
+
+            params.push(`pontos=${pontos}`);
+            params.push(`total=${total}`);
+
+            const urlBase = window.location.origin + window.location.pathname;
+            const link = urlBase + "?" + params.join("&");
+
+            document.getElementById("linkRespostas").innerHTML =
+                `🔗 Link com respostas e status:<br><a href="${link}" target="_blank">${link}</a>`;
+        }
+    </script>
+
+</body>
+
+</html>
